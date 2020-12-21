@@ -1,0 +1,36 @@
+<!-- <h1 *ngIf="dataFromChild">
+  {{dataFromChild?.name + ' ' + dataFromChild?.gender}}
+</h1> -->
+<div class="form-group ">
+  <div class="row ">
+    <div class="col-md-3">
+      <input type="text" name="" id="" class="form-control " placeholder="Search by Name" [(ngModel)]="searchTerm">
+    </div>
+  </div>
+</div>
+<h1 #h1Variable></h1>
+<div class="form-group ">
+  <button type="button" class="btn btn-primary" (click)="changeEmployeeName()">Change Employee Name</button>
+</div>
+<!-- | employeeFilter:searchTerm -->
+<div class="panel panel-primary" *ngFor="let employee of filteredEmployees">
+  <div (click)="h1Variable.innerHTML = childComponent.getNameGender()">
+    <!-- <div (click)="onClick(employee.id)"> -->
+    <app-display-employee [employee]="employee" #childComponent [searchTerm]="searchTerm"
+      (notifyDelete)="onDeleteNotification($event)">
+      <!-- template ref -->
+      <!-- (notify)="handleNotify($event)" -->
+    </app-display-employee>
+    <!-- </div> -->
+  </div>
+</div>
+<div *ngIf="error" class="">
+  {{error}}
+</div>
+
+<!-- <button type="btn" class="btn btn-primary" (click)="nextEmployee()">
+  View next Employee
+</button>
+<br>
+<br>
+<app-display-employee [employee]="employeeToDisplay"></app-display-employee>  -->
