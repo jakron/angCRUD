@@ -12,6 +12,6 @@ export class EmployeeFilterPipe implements PipeTransform {
         if (!employees || !searchTerm) {
             return employees;
         }
-        return employees.filter(x => x.name.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1);
+        return employees.filter(x => x.Name.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1);
     }
 }

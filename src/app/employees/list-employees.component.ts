@@ -43,7 +43,7 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   onDeleteNotification(id: number) {
-    const i = this.filteredEmployees.findIndex(x => x.id === id);
+    const i = this.filteredEmployees.findIndex(x => x.Id === id);
     if (i != -1) {
       this.filteredEmployees.splice(i, 1);
     }
@@ -68,10 +68,10 @@ export class ListEmployeesComponent implements OnInit {
     // this.employeeToDisplay = this.employees[0];
   }
   filtereEmployees(v: string): Employee[] {
-    return this.employees.filter(x => x.name.toLocaleLowerCase().indexOf(v.toLocaleLowerCase()) !== -1);
+    return this.employees.filter(x => x.Name.toLocaleLowerCase().indexOf(v.toLocaleLowerCase()) !== -1);
   }
   changeEmployeeName() {
-    this.employees[0].name = 'Jordan';
+    this.employees[0].Name = 'Jordan';
     this.filteredEmployees = this.filtereEmployees(this.searchTerm);
   }
 

@@ -1,4 +1,4 @@
-<app-accordion [title]="employee.name" [hasJustViewed]="selectedEmployeeId === employee.id" [isHidden]="true">
+<app-accordion [title]="employee.Name" [hasJustViewed]="selectedEmployeeId === employee.Id" [isHidden]="true">
     <div class="col-xs-10 myPanelBody">
         <div class="row vertical-align">
             <div class="col-xs-4">
@@ -11,7 +11,7 @@
                         Gender
                     </div>
                     <div class="col-xs-6">
-                        : {{employee.gender}}
+                        : {{employee.Gender}}
                     </div>
                 </div>
                 <div class="row">
@@ -19,7 +19,7 @@
                         Date of Birth
                     </div>
                     <div class="col-xs-6">
-                        : {{employee.dateOfBirth | date}}
+                        : {{employee.DateOfBirth | date}}
                     </div>
                 </div>
                 <div class="row">
@@ -27,7 +27,7 @@
                         Contact Preference
                     </div>
                     <div class="col-xs-6">
-                        : {{employee.contactPreference}}
+                        : {{employee.ContactPreference}}
                     </div>
                 </div>
                 <div class="row">
@@ -35,7 +35,7 @@
                         Phone
                     </div>
                     <div class="col-xs-6">
-                        : {{employee.phoneNumber}}
+                        : {{employee.PhoneNumber}}
                     </div>
                 </div>
                 <div class="row">
@@ -43,14 +43,14 @@
                         Email
                     </div>
                     <div class="col-xs-6">
-                        : {{employee.email}}
+                        : {{employee.Email}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-6">
                         Department
                     </div>
-                    <div class="col-xs-6" [ngSwitch]="employee.department">
+                    <div class="col-xs-6" [ngSwitch]="employee.Department">
                         :
                         <span *ngSwitchCase="1">Help Desk</span>
                         <span *ngSwitchCase="2">IT</span>

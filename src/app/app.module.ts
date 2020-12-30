@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+// import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule } from "@angular/common/http";
@@ -21,15 +21,15 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { EmployeeDetailsGuardService } from './employees/employee-details-guard.service';
 import { AccordionComponent } from './shared/accordion.component';
 
-const appRouts: Routes = [
-  { path: 'employees', component: ListEmployeesComponent, resolve: { employeeList: EmployeeListResolverService } },
-  { path: 'employee/:id', component: EmployeeDetailsComponent, canActivate: [EmployeeDetailsGuardService] },
-  { path: 'edit/:id', component: CreateEmployeeComponent },
-  // { path: 'employee/:id/:gender', component: CreateEmployeeComponent },
-  { path: '', redirectTo: '/employees', pathMatch: 'full' },
-  { path: 'notfound', component: PageNotFoundComponent },
+// const appRouts: Routes = [
+//   { path: 'employees', component: ListEmployeesComponent, resolve: { employeeList: EmployeeListResolverService } },
+//   { path: 'employee/:id', component: EmployeeDetailsComponent, canActivate: [EmployeeDetailsGuardService] },
+//   { path: 'edit/:id', component: CreateEmployeeComponent },
+//   // { path: 'employee/:id/:gender', component: CreateEmployeeComponent },
+//   { path: '', redirectTo: '/employees', pathMatch: 'full' },
+//   { path: 'notfound', component: PageNotFoundComponent },
 
-];
+// ];
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ const appRouts: Routes = [
     HttpClientModule,
     BsDatepickerModule.forRoot(),
     FormsModule,
-    RouterModule.forRoot(appRouts, { enableTracing: true }),
+    // RouterModule.forRoot(appRouts, { enableTracing: true }),
     AppRoutingModule,
     BrowserAnimationsModule
   ],

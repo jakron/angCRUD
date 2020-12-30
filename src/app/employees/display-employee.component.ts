@@ -25,22 +25,22 @@ export class DisplayEmployeeComponent implements OnInit {
   }
 
   viewEmployee() {
-    this._router.navigate(['/employee', this.employee.id], {
+    this._router.navigate(['/employee', this.employee.Id], {
       queryParams: { 'searchTerm': this.searchTerm }
     });
   }
   editEmployee() {
-    this._router.navigate(['/edit', this.employee.id]);
+    this._router.navigate(['/edit', this.employee.Id]);
   }
   getNameGender(): string {
-    return this.employee.name + ' ' + this.employee.gender;
+    return this.employee.Name + ' ' + this.employee.Gender;
   }
   deleteEmployee() {
-    this._employeeService.deleteEmployee(this.employee.id).subscribe(
-      () => console.log('employee del ', this.employee.id),
+    this._employeeService.deleteEmployee(this.employee.Id).subscribe(
+      () => console.log('employee del ', this.employee.Id),
       err => console.log('err', err)
     );
-    this.notifyDelete.emit(this.employee.id);
+    this.notifyDelete.emit(this.employee.Id);
   }
   // handleClick(): void {
   //   this.notify.emit(this.employee);

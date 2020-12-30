@@ -1,14 +1,14 @@
 export class Employee {
-    id?: number;
-    name?: string;
-    gender?: string;
-    email?: string;
-    phoneNumber?: number;
-    contactPreference?: string;
-    dateOfBirth?: Date;
-    department?: string;
+    Id?: number;
+    Name?: string;
+    Gender?: string;
+    Email?: string;
+    PhoneNumber?: number;
+    ContactPreference?: string;
+    DateOfBirth?: Date;
+    Department?: string;
     isActive?: boolean;
-    photoPath?: string;
-    password: number;
-    confirmPassword: number;
+    PhotoPath?: string;
+    Password: string;
+    ConfirmPassword: string;
 }

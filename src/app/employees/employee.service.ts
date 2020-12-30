@@ -51,11 +51,11 @@ export class EmployeeService {
     //     },
     // ];
 
-    baseUrl = 'http://localhost:3000/employees';
+    baseUrl = 'http://localhost:56694/';
 
     getEmployees(): Observable<Employee[]> {
         // return of(this.listEmployees).pipe(delay(1000));  local app db
-        return this._httpClient.get<Employee[]>(this.baseUrl).pipe(catchError(this.handleError));
+        return this._httpClient.get<Employee[]>(this.baseUrl + 'api/Employees').pipe(catchError(this.handleError));
         // .catch(this.handleError);
     }
     private handleError(errorResponse: HttpErrorResponse) {
@@ -64,11 +64,11 @@ export class EmployeeService {
         } else {
             console.error('Server side error: ', errorResponse);
         }
-        return throwError('asdfasdf');
+        return throwError('Angular side error: ', errorResponse.error);
     }
     getEmployee(id: number): Observable<Employee> {
         // return this.listEmployees.find(x => x.id === id);
-        return this._httpClient.get<Employee>(`${this.baseUrl}/${id}`).pipe(catchError(this.handleError));
+        return this._httpClient.get<Employee>(`${this.baseUrl + 'api/Employees'}/${id}`).pipe(catchError(this.handleError));
     }
     addEmployee(employee: Employee): Observable<Employee> {
         // if (employee.id === null) {
@@ -77,18 +77,16 @@ export class EmployeeService {
         // }).id;
         // employee.id = maxId + 1;
         // this.listEmployees.push(employee);
-        return this._httpClient.post<Employee>(this.baseUrl, employee, {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json'
-            })
-        }).pipe(catchError(this.handleError));
+        return this._httpClient.post<Employee>(this.baseUrl + 'api/Employees', employee
+            // , {headers: new HttpHeaders({ 'Content-Type': 'application/json' })}
+        ).pipe(catchError(this.handleError));
         // } else {
         //     const foundIndex = this.listEmployees.findIndex(x => x.id === employee.id);
         //     this.listEmployees[foundIndex] = employee;
         // }
     }
     updateEmployee(employee: Employee): Observable<void> {
-        return this._httpClient.put<void>(`${this.baseUrl}/${employee.id}`, employee, {
+        return this._httpClient.put<void>(`${this.baseUrl + 'api/Employees'}/${employee.Id}`, employee, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             })
@@ -99,6 +97,6 @@ export class EmployeeService {
         // if (i != -1) {
         //     this.listEmployees.splice(i, 1);
         // }
-        return this._httpClient.delete<void>(`${this.baseUrl}/${id}`).pipe(catchError(this.handleError));
+        return this._httpClient.delete<void>(`${this.baseUrl + 'api/Employees'}/${id}`).pipe(catchError(this.handleError));
     }
 }
